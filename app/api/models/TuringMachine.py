@@ -1,7 +1,7 @@
 """
 The following code represents a class to build Turing Machines easier and swiftly.
 
-@:author Angel Cruz Mora
+@:author Angel Cruz
 @:date 11/26/2024
 """
 
