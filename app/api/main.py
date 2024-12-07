@@ -29,5 +29,7 @@ async def get_binary_format(text:str):
             binary_str= model.get_tape()
         # Add binary string to output
         output+= binary_str + " "
+    # Remove the last space
+    output= output[:-1]
     # Return binary string
     return {"code":200, "output":output}

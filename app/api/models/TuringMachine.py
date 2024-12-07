@@ -194,4 +194,3 @@ if __name__ == "__main__":
     in_tape= machine.get_tape(reverse= True)
     print("Is accepted? {}".format(is_accepted))
     print("Tape. {}".format(in_tape))
-
