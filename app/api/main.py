@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from models.PreBuilt import BinaryMachineTuring
+from pre_built_models.TuringMachines import BinaryTuringMachine
 
 app= FastAPI()
 app.add_middleware(
@@ -18,7 +18,7 @@ async def root():
 @app.post("/name/{text}")
 async def get_binary_format(text:str):
     # Initialize the model
-    model= BinaryMachineTuring()
+    model= BinaryTuringMachine()
     # Iterate along the characters
     output= ""
     for c in text:
