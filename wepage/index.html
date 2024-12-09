@@ -4,133 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turing Machine</title>
-    <style>
-        body
-        {
-            padding: 0px;
-            margin: 0px;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: white;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        nav
-        {
-            width: 100%;
-            padding: 10px;
-            background-color: black;
-            box-shadow: 0px 5px 10px black;
-        }
-        nav h2
-        {
-            margin: 10px 30px
-        }
-
-        .main
-        {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .main textarea
-        {
-            width: 60%;
-            height: 200px;
-            margin: 30px 0px;
-        }
-        .main button
-        {
-            width: 150px;
-            height: 50px;
-            font-size: 30px;
-            background-color: white;
-        }
-        .main button:hover
-        {
-            width: 160px;
-            background-color: gray;
-        }
-
-        .main header
-        {
-            width: 90%;
-            text-align: left;
-        }
-        .main header
-        {
-            font-size: 20px;
-        }
-
-        .answer
-        {
-            width: 100%;
-            height: 40vh;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .answer textarea
-        {
-            width: 60%;
-            height: 200px;
-            margin: 30px 0px;
-            padding: 5px;
-        }
-        .answer header
-        {
-            width: 90%;
-            text-align: left;
-        }
-        .answer header
-        {
-            font-size: 20px;
-        }
-
-        .output-area
-        {
-            width: 100%;
-            display: flex;
-            flex-direction: columns;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <h2>Turing Machine</h2>
+        <a id="turing-machine"><h2>Turing Machine</h2></a>
+        <a id="nfa"><h2>Non-Deterministic Finite Automaton</h2></a>
     </nav>
-    <div class= "main">
-        <header>
-            <h1>Inserte Texto</h1>
-            <p>
-                Pagina para hacer la conversion de texto a cadenas binarias con la ayuda de una
-                maquina de turing previamente desarrollada.
-            </p>
-        </header>
-        <textarea id="text" rows="5" cols="33"></textarea>
-        <button class="bttn-submit" id= "submit_bttn">Submit</button>
+    <div class= "turing-machine-container">
+        <div class= "main">
+            <header>
+                <h1>Inserte Texto</h1>
+                <p>
+                    Pagina para hacer la conversion de texto a cadenas binarias con la ayuda de una
+                    maquina de turing previamente desarrollada.
+                </p>
+            </header>
+            <textarea id="input_text" class= "input-text" rows="5" cols="33"></textarea>
+            <button id= "submit_bttn" class="bttn-submit">Submit</button>
+        </div>
+        <div id="answer-container" class= "answer">
+            <header>
+                <h2>Binary Text</h2>
+                <p>
+                    A continuacion se muestran las cadenas resultantes al realizar la conversion de 
+                    texto a binario.
+                </p>
+            </header>
+            <section class= "output-area">
+                <textarea id="answer_out" class= "input-text"></textarea>
+            </section>
+        </div>
+        <script src="script.js"></script>
     </div>
-    <div class= "answer">
-        <header>
-            <h2>Binary Text</h2>
-            <p>
-                A continuacion se muestran las cadenas resultantes al realizar la conversion de 
-                texto a binario.
-            </p>
-        </header>
-        <section class= "output-area">
-            <textarea id="answer_out"></textarea>
-        </section>
-    </div>
-    <script src="script.js"></script>
 </body>
 </html>

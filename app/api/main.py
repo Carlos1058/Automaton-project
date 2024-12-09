@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pre_built_models.TuringMachines import BinaryTuringMachine
+from my_models.preBuiltModels import BinaryTuringMachine
 
 app= FastAPI()
 app.add_middleware(

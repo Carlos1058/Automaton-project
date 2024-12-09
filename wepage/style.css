@@ -1,0 +1,123 @@
+body
+{
+    padding: 0px;
+    margin: 0px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Navegation bar */
+nav
+{
+    width: 100%;
+    padding: 0px 10px;
+    background-color: black;
+    box-shadow: 0px 5px 10px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+nav a
+{
+    font-size: 18px;
+    margin: 5px 40px;
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+nav a:hover
+{
+    color: rgb(44, 155, 122);
+}
+
+
+/* ==== Turing Machine container ==== */
+.turing-machine-container
+{
+    width: 100%;
+    /* display: none; */
+}
+
+/* Turing Machine input container */
+.main
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.input-text
+{
+    width: 60%;
+    height: 200px;
+    margin: 30px 0px 10px 0px;
+    font-size: 20px;
+}
+.bttn-submit
+{
+    width: 200px;
+    height: 40px;
+    font-size: 30px;
+    background-color: white;
+    border-radius: 40px;
+    transition: 0.3s;
+}
+.bttn-submit:hover
+{
+    width: 230px;
+    background-color: gray;
+}
+
+.main header
+{
+    width: 90%;
+    text-align: left;
+}
+.main header
+{
+    font-size: 20px;
+}
+
+/* Turing Machine output container */
+.answer
+{
+    width: 100%;
+    height: 40vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.answer textarea
+{
+    width: 60%;
+    height: 180px;
+    margin: 30px 0px;
+    padding: 5px;
+}
+.answer header
+{
+    width: 90%;
+    text-align: left;
+}
+.answer header
+{
+    font-size: 20px;
+}
+
+.output-area
+{
+    width: 100%;
+    display: flex;
+    flex-direction: columns;
+    justify-content: center;
+    align-items: center;
+}
