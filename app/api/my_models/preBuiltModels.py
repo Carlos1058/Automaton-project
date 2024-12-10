@@ -1,5 +1,5 @@
 """
-    Python module to pre-build Turing Machines
+    Python module to pre-build Turing Machines and Nondeterministic Finite Automatons (NFAs)
 
     @:author Angel Cruz
     @: 11/30/2024
@@ -7,9 +7,10 @@
 
 # Turing Machine package
 from .TuringMachine import TuringMachine
+from .NFA import NFA
 
 """
-    Pre-Built Turing Machines ====================================================================== 
+    Pre-Built Turing Machines ======================================================================
 """
 
 class BinaryTuringMachine:
@@ -40,14 +41,52 @@ class BinaryTuringMachine:
         return self.machine.get_tape(reverse= True)
 
 
-"""
-    Pre-Built Non-Deterministic Finite Automaton ====================================================================== 
-"""
 
 
+    """
+        Pre-Built Non-Deterministic Finite Automaton ======================================================================
+    """
 
-if __name__ == "__main__":
-    model= BinaryTuringMachine()
+class OperationValidatorNFA:
+    """
+        Pre-built NFA to validate mathematical operations with numbers, operators, and scientific notation.
+    """
+    def __init__(self):
+        self.model = NFA(initial_state="0", final_states=["5"])
+        self._build_model()
 
-    if model.is_accepted("1111111"): # Number 7
-        print(model.get_tape())
+    def _build_model(self):
+        # States for numbers
+        self.model.add_transition("0", "1", '-')
+        self.model.add_transition("0", "1", '+')
+        for digit in "0123456789":
+            self.model.add_transition("0", "1", digit)
+            self.model.add_transition("1", "1", digit)
+            self.model.add_transition("2", "2", digit)
+            self.model.add_transition("3", "3", digit)
+
+        # Decimal points
+        self.model.add_transition("1", "2", ".")
+
+        # Scientific notation
+        self.model.add_transition("1", "3", "e")
+        self.model.add_transition("2", "3", "e")
+        self.model.add_transition("3", "4", "-")
+        self.model.add_transition("3", "4", "+")
+        for digit in "0123456789":
+            self.model.add_transition("3", "4", digit)
+            self.model.add_transition("4", "4", digit)
+
+        # Operators
+        for operator in ["+", "-", "*", "/"]:
+            self.model.add_transition("1", "0", operator)
+            self.model.add_transition("2", "0", operator)
+            self.model.add_transition("4", "0", operator)
+
+        # Final state
+        self.model.add_transition("1", "5", "")
+        self.model.add_transition("2", "5", "")
+        self.model.add_transition("4", "5", "")
+
+    def is_accepted(self, expression: str) -> bool:
+        return self.model.validate_string(expression)
