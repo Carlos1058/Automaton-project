@@ -1,5 +1,5 @@
 """
-    Python module to pre-build Turing Machines and Nondeterministic Finite Automatons (NFAs)
+    Python module to pre-build Turing Machines and Non-Deterministic Finite Automatons (NFAs)
 
     @:author Angel Cruz
     @: 11/30/2024
@@ -90,3 +90,14 @@ class OperationValidatorNFA:
 
     def is_accepted(self, expression: str) -> bool:
         return self.model.validate_string(expression)
+
+
+
+if __name__ == "__main__":
+    # Example usage for operation validation
+    validator = OperationValidatorNFA()
+    test_expression = "1.232323251e3+20*10.111/10-100^0.2"
+    if validator.is_accepted(test_expression):
+        print("Valid operation")
+    else:
+        print("Invalid operation")

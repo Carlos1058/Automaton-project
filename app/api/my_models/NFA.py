@@ -16,7 +16,6 @@ class NFA:
             :param final_states: Str list, the final states of the NFA.
         """
         self.__transitions = {}  # Initialize transitions here
-        self.__vocabulary = set()
         self.initial_state: str = initial_state
         self.final_states: Set[str] = set(final_states)
 
@@ -88,58 +87,3 @@ class NFA:
         exec_transition(current_state, string)
         # Retrieve answer
         return is_accepted
-
-
-class OperationValidatorNFA:
-    """
-        Pre-built NFA to validate mathematical operations with numbers, operators, and scientific notation.
-    """
-    def __init__(self):
-        self.model = NFA(initial_state="0", final_states=["5"])
-        self._build_model()
-
-    def _build_model(self):
-        # States for numbers
-        self.model.add_transition("0", "1", '-')
-        self.model.add_transition("0", "1", '+')
-        for digit in "0123456789":
-            self.model.add_transition("0", "1", digit)
-            self.model.add_transition("1", "1", digit)
-            self.model.add_transition("2", "2", digit)
-            self.model.add_transition("3", "3", digit)
-
-        # Decimal points
-        self.model.add_transition("1", "2", ".")
-
-        # Scientific notation
-        self.model.add_transition("1", "3", "e")
-        self.model.add_transition("2", "3", "e")
-        self.model.add_transition("3", "4", "-")
-        self.model.add_transition("3", "4", "+")
-        for digit in "0123456789":
-            self.model.add_transition("3", "4", digit)
-            self.model.add_transition("4", "4", digit)
-
-        # Operators
-        for operator in ["+", "-", "*", "/", "^"]:
-            self.model.add_transition("1", "0", operator)
-            self.model.add_transition("2", "0", operator)
-            self.model.add_transition("4", "0", operator)
-
-        # Final state
-        self.model.add_transition("1", "5", "")
-        self.model.add_transition("2", "5", "")
-        self.model.add_transition("4", "5", "")
-
-    def is_accepted(self, expression: str) -> bool:
-        return self.model.validate_string(expression)
-
-
-if __name__ == "__main__":
-    # Example usage for operation validation
-    validator = OperationValidatorNFA()
-    test_expression = "1.232323251e3+20*10.111/10-100^0.2"
-    if validator.is_accepted(test_expression):
-        print("Valid operation")
-    else:
-        print("Invalid operation")

@@ -8,27 +8,41 @@
 </head>
 <body>
     <nav>
-        <a id="turing-machine"><h2>Turing Machine</h2></a>
+        <a id="turing-machine" style= "color: rgb(44, 155, 122);"><h2>Turing Machine</h2></a>
         <a id="nfa"><h2>Non-Deterministic Finite Automaton</h2></a>
     </nav>
     <div class= "turing-machine-container">
         <div class= "main">
-            <header>
+            <header id="turing-machine-header-1">
                 <h1>Inserte Texto</h1>
                 <p>
                     Pagina para hacer la conversion de texto a cadenas binarias con la ayuda de una
                     maquina de turing previamente desarrollada.
                 </p>
             </header>
+            <header id="nfa-header-1" style="display: none;">
+                <h1>Inserte una Operacion</h1>
+                <p>
+                    Pagina para hacer la validacion de una cadena, la cual representa una serie de operaciones,
+                    si las operaciones estan correctamente planteadas la cadena se aceptara.
+                </p>
+            </header>
             <textarea id="input_text" class= "input-text" rows="5" cols="33"></textarea>
             <button id= "submit_bttn" class="bttn-submit">Submit</button>
         </div>
         <div id="answer-container" class= "answer">
-            <header>
+            <header id="turing-machine-header-2">
                 <h2>Binary Text</h2>
                 <p>
                     A continuacion se muestran las cadenas resultantes al realizar la conversion de 
                     texto a binario.
+                </p>
+            </header>
+            <header id="nfa-header-2" style="display:none;">
+                <h2>Operation</h2>
+                <p>
+                    Si la operacion es valida, se retornara el resultado de dicha operacion, si no, se mostrara
+                    un mensaje rechazando la cadena.
                 </p>
             </header>
             <section class= "output-area">

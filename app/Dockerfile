@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.11-alpine
 
 WORKDIR /code
 
@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./api /code/api
 
-CMD ["fastapi", "run", "api/main.py", "--port", "8000:80"]
+CMD ["fastapi", "run", "api/main.py", "--port", "8000"]
